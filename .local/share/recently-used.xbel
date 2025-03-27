@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xbel version="1.0"
+      xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
+      xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
+>
+  <bookmark href="file:///home/ahmad/Documents" added="2025-03-26T02:59:44.041732Z" modified="2025-03-26T02:59:44.041745Z" visited="2025-03-26T02:59:44.041733Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="inode/directory"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2025-03-26T02:59:44.041738Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/ahmad/.config" added="2025-03-26T03:20:35.585660Z" modified="2025-03-26T03:20:39.189272Z" visited="2025-03-26T03:20:35.585662Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="inode/directory"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2025-03-26T03:20:39.189264Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/ahmad/.local" added="2025-03-26T03:20:49.862549Z" modified="2025-03-26T03:20:49.862560Z" visited="2025-03-26T03:20:49.862550Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="inode/directory"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2025-03-26T03:20:49.862554Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/ahmad/.local/share" added="2025-03-26T03:20:50.895617Z" modified="2025-03-26T03:20:50.895629Z" visited="2025-03-26T03:20:50.895619Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="inode/directory"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2025-03-26T03:20:50.895623Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/ahmad/.local/share/icc" added="2025-03-26T03:20:52.145664Z" modified="2025-03-26T03:20:52.145676Z" visited="2025-03-26T03:20:52.145666Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="inode/directory"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2025-03-26T03:20:52.145670Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/ahmad/.local/share/keyrings" added="2025-03-26T03:20:53.530413Z" modified="2025-03-26T03:20:53.530426Z" visited="2025-03-26T03:20:53.530415Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="inode/directory"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2025-03-26T03:20:53.530419Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/ahmad/Documents/Psswd.kdbx" added="2025-03-26T03:35:35.347650Z" modified="2025-03-26T03:35:35.347660Z" visited="2025-03-26T03:35:35.347652Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/x-keepass2"/>
+        <bookmark:applications>
+          <bookmark:application name="keepassxc" exec="&apos;keepassxc %u&apos;" modified="2025-03-26T03:35:35.347655Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/ahmad/Documents/DSCN0062.bin" added="2025-03-26T03:35:39.932226Z" modified="2025-03-26T03:35:39.932238Z" visited="2025-03-26T03:35:39.932228Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="keepassxc" exec="&apos;keepassxc %u&apos;" modified="2025-03-26T03:35:39.932232Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/ahmad/Pictures" added="2025-03-26T03:36:05.166647Z" modified="2025-03-27T03:46:45.329117Z" visited="2025-03-26T03:36:05.166649Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="inode/directory"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2025-03-27T03:46:45.329115Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/ahmad/Pictures/%D8%A3%D9%84%D8%A8%D9%88%D9%85%D8%A7%D8%AA" added="2025-03-26T03:36:07.238270Z" modified="2025-03-26T03:36:07.238275Z" visited="2025-03-26T03:36:07.238271Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="inode/directory"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2025-03-26T03:36:07.238273Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/ahmad/Pictures/%D8%A3%D9%84%D8%A8%D9%88%D9%85%D8%A7%D8%AA/2014-02-06%20%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9%201" added="2025-03-26T03:36:08.726834Z" modified="2025-03-26T03:36:08.726852Z" visited="2025-03-26T03:36:08.726837Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="inode/directory"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2025-03-26T03:36:08.726843Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/ahmad/Pictures/%D8%A3%D9%84%D8%A8%D9%88%D9%85%D8%A7%D8%AA/2014-02-06%20%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9%201/%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9_20140206_36.JPG" added="2025-03-26T03:36:43.869394Z" modified="2025-03-26T03:36:43.869414Z" visited="2025-03-26T03:36:43.869397Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/jpeg"/>
+        <bookmark:applications>
+          <bookmark:application name="keepassxc" exec="&apos;keepassxc %u&apos;" modified="2025-03-26T03:36:43.869403Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/ahmad/Downloads/vortex-debian-plymouth-theme-main.zip" added="2025-03-26T14:58:25.528771Z" modified="2025-03-26T14:58:25.528820Z" visited="2025-03-26T14:58:25.528773Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/zip"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox-esr %u&apos;" modified="2025-03-26T14:58:25.528790Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/ahmad/Downloads/kali-themes-kali-master.zip" added="2025-03-26T15:12:24.546232Z" modified="2025-03-26T15:12:24.546252Z" visited="2025-03-26T15:12:24.546235Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/zip"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox-esr %u&apos;" modified="2025-03-26T15:12:24.546242Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/ahmad/Downloads" added="2025-03-26T15:25:00.512024Z" modified="2025-03-26T15:25:00.512030Z" visited="2025-03-26T15:25:00.512025Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="inode/directory"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2025-03-26T15:25:00.512027Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/ahmad/Courses" added="2025-03-26T16:14:27.909750Z" modified="2025-03-26T16:14:27.909755Z" visited="2025-03-26T16:14:27.909751Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="inode/directory"/>
+        <bookmark:applications>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2025-03-26T16:14:27.909753Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/ahmad/Pictures/Wallpapers" added="2025-03-27T03:27:08.593204Z" modified="2025-03-27T03:46:46.799931Z" visited="2025-03-27T03:27:08.593205Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="inode/directory"/>
+        <bookmark:applications>
+          <bookmark:application name="xfdesktop-settings" exec="&apos;xfdesktop-settings %u&apos;" modified="2025-03-27T03:27:08.593207Z" count="1"/>
+          <bookmark:application name="Thunar" exec="&apos;Thunar %u&apos;" modified="2025-03-27T03:46:46.799928Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+</xbel>
