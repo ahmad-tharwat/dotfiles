@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Newsboat
+Comment=TUI RSS/Atom feed reader
+Exec=newsboat
+Keywords=rss;reader;news
+Terminal=true
+Type=Application
+Categories=Internet;
+Icon=newsboat
+Path=
+StartupNotify=false

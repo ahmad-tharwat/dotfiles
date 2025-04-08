@@ -1,0 +1,35 @@
+#!/bin/bash
+#
+# Author:       Arszilla
+# Github:       https://github.com/Arszilla
+# Gitlab:       https://gitlab.com/Arszilla
+# Twitter:      https://twitter.com/Arszilla
+#
+# License:      MIT License
+# License URL:  https://gitlab.com/Arszilla/i3-dotfiles/-/blob/main/LICENSE
+
+focusedWindow=$(/usr/bin/xdotool getactivewindow)
+
+case $1 in
+    fullscreen)
+        /usr/bin/flameshot full --path ~/Pictures/ >/dev/null
+        ;;
+
+    gui)
+        /usr/bin/flameshot gui --path ~/Pictures/ >/dev/null
+        ;;
+
+    clipboardFullscreen)
+        /usr/bin/flameshot full --clipboard >/dev/null
+        ;;
+
+    clipboardGui)
+        /usr/bin/flameshot gui --clipboard >/dev/null
+        ;;
+
+esac
+
+if [ "$focusedWindow" == "$(/usr/bin/xdotool getactivewindow)" ]; then
+    /usr/bin/xdotool windowfocus "$focusedWindow"
+
+fi

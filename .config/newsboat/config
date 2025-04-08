@@ -1,0 +1,74 @@
+### Appearance
+articlelist-format " %f %5D %?T?%T -? %?a?%a: ?%t"
+articlelist-title-format "%u/%t unread articles in feed '%T'"
+
+# Use colors used in your system theme
+color background          default default
+color listnormal          default default
+color listfocus           default default reverse
+color listnormal_unread   default default bold
+color listfocus_unread    default default reverse
+color info                black   white   dim
+color article             default default
+
+datetime-format "%e-%-m"
+
+dirbrowser-title-format "%?O?Open Directory&Save File? - %f"
+
+feed-sort-order firsttag-asc
+feedlist-format " %n %11u (%T) %t"
+feedlist-title-format " Feeds (%u unread, %t total)"
+
+highlight all "newsboat" red
+highlight article "^(Feed|Title|Author|Link|Date):" default default bold underline
+highlight feedlist "https?://[^ ]+" yellow blue bold
+
+itemview-title-format "Article '%T'"
+
+search-highlight-colors default default bold
+searchresult-title-format "Search result"
+
+selectfilter-title-format "Select Filter"
+selecttag-format " %10T (%n unread articles in %f feeds, %u feeds total)"
+selecttag-title-format "Select Tag"
+
+### Behavior
+browser lynx
+download-retries 3
+prepopulate-query-feeds yes
+reload-only-visible-feeds yes
+reload-threads 4
+
+### vim like keybindings
+# credit: https://gideonwolfe.com/posts/workflow/newsboat/
+bind-key h quit articlelist
+bind-key h quit article
+bind-key h quit tagselection
+bind-key h quit feedlist
+
+bind-key j down feedlist
+bind-key j down tagselection
+bind-key j next articlelist
+bind-key j down article
+bind-key J next-feed articlelist
+
+bind-key k up feedlist
+bind-key k prev articlelist
+bind-key k up tagselection
+bind-key K prev-feed articlelist
+bind-key k up article
+
+bind-key l open articlelist
+bind-key l open feedlist
+bind-key l open tagselection
+
+bind-key G end
+bind-key g home
+
+bind-key d pagedown
+bind-key u pageup
+
+### Files
+error-log "~/.local/share/newsboat/error.log"
+save-path "~/Documents/Articles"
+

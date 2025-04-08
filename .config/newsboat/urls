@@ -1,0 +1,146 @@
+# Main Feeds
+"query:Islam:tags # \"islam\" and unread = \"yes\""
+"query:Security:tags # \"sec\" and unread = \"yes\""
+"query:Politics:tags # \"politics\" and unread = \"yes\""
+"query:Economy:tags # \"economy\" and unread = \"yes\""
+"query:Tech:tags # \"tech\" and unread = \"yes\""
+"query:Electronics:tags # \"ee\" and unread = \"yes\""
+"query:Software Engineering:tags # \"swe\" and unread = \"yes\""
+"query:All News:tags # \"news\" and unread = \"yes\""
+"query:All Articles:tags # \"blog\" and unread = \"yes\""
+
+--------------------------------------------
+
+# Islamic feeds
+https://tg.i-c-a.su/rss/melhamy history islam
+https://www.youtube.com/feeds/videos.xml?channel_id=UC7AbKZa30XPMInZIsViiBOQ islam
+https://www.youtube.com/feeds/videos.xml?channel_id=UCah56qawts736uNxZA3inLQ islam
+https://tg.i-c-a.su/rss/meahmad_abdelmon3em/ islam
+https://tg.i-c-a.su/rss/balawi5 islam
+https://tg.i-c-a.su/rss/islam_i_afifi islam
+https://tg.i-c-a.su/rss/EyadQunaibi islam
+https://www.youtube.com/feeds/videos.xml?channel_id=UCahYlNszeMy_PHffYvgAOHg islam
+https://www.facebook.com/OfficialAzharEg islam
+https://www.omnycontent.com/d/playlist/2b465d4a-14ee-4fbe-a3c2-ac46009a2d5a/8ad680df-ec6a-4949-a271-ac70008515a5/de46c032-0e1a-4d27-bd94-ac70008515ae/podcast.rss islam
+https://www.youtube.com/feeds/videos.xml?channel_id=UC-PTiHEZnsponbqlmRIxfpw islam
+https://feeds.buzzsprout.com/2099869.rss islam
+https://www.youtube.com/feeds/videos.xml?channel_id=UClytYhL7vkTiiWcauy3fXKw islam
+https://www.youtube.com/feeds/videos.xml?channel_id=UCm85scTKjex-ah3psqbykvw islam
+https://www.youtube.com/feeds/videos.xml?channel_id=UCR-FaaxjUGA2mE4tbZwYITw islam
+https://shuounislamiya.com/feed islam
+https://tg.i-c-a.su/rss/aalqarni1 islam
+https://www.youtube.com/feeds/videos.xml?channel_id=UCb5kp2EMETR2RCR1kT0c26g islam
+https://tg.i-c-a.su/rss/o_alshair islam
+https://tg.i-c-a.su/rss/savoir_qui_profite islam
+https://www.omnycontent.com/d/playlist/2b465d4a-14ee-4fbe-a3c2-ac46009a2d5a/458275aa-a956-425e-8185-af8100852873/242eadbb-bdd8-4710-a19a-af810087c486/podcast.rss islam
+https://tg.i-c-a.su/rss/kareemahelmy islam
+https://www.youtube.com/feeds/videos.xml?channel_id=UC_nOoE4cIapZENcimY3I0uQ islam
+https://www.youtube.com/feeds/videos.xml?channel_id=UCetbPXG0MgVukVfcPIitE8Q islam
+https://www.youtube.com/feeds/videos.xml?channel_id=UCsotsJElUuhqVFXS3P-eOpA islam
+https://tg.i-c-a.su/rss/mastal islam
+https://tg.i-c-a.su/rss/MahmoudBenFekry islam
+https://feed.podbean.com/noqta/feed.xml islam
+https://www.youtube.com/feeds/videos.xml?channel_id=UCLj8UFOcdFrvlh24Lw7jrgA islam
+
+# Economy feeds
+https://economyplusme.com/category/أخبار/feed/ "~Economy Plus" economy news
+https://www.noonpost.com/cat/economy/feed                       economy news
+https://www.madamasr.com/section/%d8%a7%d9%82%d8%aa%d8%b5%d8%a7%d8%af/feed/ economy news
+https://www.youtube.com/feeds/videos.xml?channel_id=UCjMdgUQQM68S7tdXspE45Ag economy news
+https://www.youtube.com/feeds/videos.xml?channel_id=UC4kRorAXuIkyIX6vwXKaLWg "~المخبر الاقتصادي" economy news
+https://www.youtube.com/feeds/videos.xml?channel_id=UCmfUfJf4SgAWCqXhiS-gNLQ economy news
+https://tg.i-c-a.su/rss/BnSamyPosts "~بن سامي" economy news
+
+# Politics feeds 
+https://www.noonpost.com/cat/politics/feed      politics news
+https://tg.i-c-a.su/rss/AhmedMawlana 			politics
+https://www.youtube.com/feeds/videos.xml?channel_id=UCsBZlaSJyXiYKsAWLP-thkQ politics
+https://www.youtube.com/feeds/videos.xml?channel_id=UCGu86XBNrnoUPRGDuNv6OJQ politics news
+
+# Tech feeds
+https://ayehia0.com/index.xml "~Ahmed Yehia"    tech blog
+https://gideonwolfe.com/index.xml               tech blog
+https://jhalon.github.io/feed.xml               tech blog
+https://www.youtube.com/feeds/videos.xml?channel_id=UCS97tchJDq17Qms3cux8wcA tech
+https://siemens.fm/backend/rss/podcast/0/5d9d47fb2b9d047139fc0bb2b84fa46835743610a7b3284ad7561a289ce41026/details.rss tech
+https://www.youtube.com/feeds/videos.xml?channel_id=UCtXKDgv1AVoG88PLl8nGXmw tech
+https://spectrum.ieee.org/feeds/feed.rss tech
+https://feeds.simplecast.com/plLBK8__ tech
+https://siemens.fm/backend/rss/podcast/0/4aaa2bf86a6ba11c20343543a7f90397f2ce1e2cf695f2b3d346ea10ec9ea324/details.rss tech
+https://github.blog/feed/ tech
+https://anchor.fm/s/d4503410/podcast/rss tech
+https://feeds.simplecast.com/Bh4o49Be tech
+https://library.egyptscholars.org/category/%d8%a7%d9%84%d8%b9%d9%84%d9%88%d9%85-%d8%a7%d9%84%d8%b7%d8%a8%d9%8a%d8%b9%d9%8a%d8%a9/%d8%a7%d9%84%d9%87%d9%86%d8%af%d8%b3%d8%a9-%d9%88%d8%a7%d9%84%d8%aa%d9%83%d9%86%d9%88%d9%84%d9%88%d8%ac%d9%8a%d8%a7/feed/ tech
+
+# Embedded feeds
+https://www.beningo.com/blog//feed ee
+https://bootlin.com/feed/ ee
+https://embeddeduse.com/feed/ ee
+https://deepbluembedded.com//feed ee
+https://tg.i-c-a.su/rss/embedded_system ee
+https://blog.hidglobal.com/taxonomy/term/3582/feed ee
+https://www.embedded.com/feed/ ee
+https://embedded.fm/blog?format=rss ee
+https://makingembeddedsystems.libsyn.com/rss ee
+https://www.embeddedrelated.com/blogs_rss.php ee
+https://www.youtube.com/feeds/videos.xml?channel_id=UCGT8v1UyDHkC7WF3cyzjpSQ ee
+https://medium.com/feed/@pallavaggarwal ee
+https://www.youtube.com/feeds/videos.xml?channel_id=UCMGXFEew8I6gzjg3tWen4Gw ee
+https://www.youtube.com/feeds/videos.xml?channel_id=UCjzcPNR1X1WGcPfhKMLaxMA ee
+https://www.youtube.com/feeds/videos.xml?channel_id=UCHTjN5FEITwRyb4IA3F8c4Q ee
+https://www.youtube.com/feeds/videos.xml?channel_id=UCUNpxcO109gQx7yYxAtXHmA ee
+
+# Software
+https://www.youtube.com/feeds/videos.xml?channel_id=UCbhHMJUqStcsR_ktGurECCw swe
+https://www.youtube.com/feeds/videos.xml?channel_id=UCYmPRHG8l6LMihiIV6xPhag swe
+https://medium.com/feed/@eng_ahmed.tarek swe
+https://www.youtube.com/feeds/videos.xml?channel_id=UCRSFUodZcy-71EyiXoUUxEw swe
+https://www.youtube.com/feeds/videos.xml?channel_id=UCGLOf9Jk6x_r7smdhfAEY_A swe
+https://www.youtube.com/feeds/videos.xml?channel_id=UC_ML5xP23TOWKUcc-oAE_Eg swe
+https://www.youtube.com/feeds/videos.xml?channel_id=UCbfeU11AWBf-_SNW45xjCcQ swe
+https://www.youtube.com/feeds/videos.xml?channel_id=UCsNGUi2KunU-y51CmK3cPRA swe
+https://www.youtube.com/feeds/videos.xml?channel_id=UCMQeTJFwpvbeXjLPrd9_eQw swe
+https://medium.com/feed/@aligmohammad swe
+https://www.youtube.com/feeds/videos.xml?channel_id=UCJu5uNExWKx1Vrv6Ah5SHfA swe
+https://medhatdawoud.net/rss.xml swe
+
+# Opportunities
+https://www.youtube.com/feeds/videos.xml?channel_id=UCn1CrIgAkpRpNXzH4z5h6zQ opp
+https://www.youtube.com/feeds/videos.xml?channel_id=UChY1Fni9OJnOi6sS7HxUXDA opp
+https://www.youtube.com/feeds/videos.xml?channel_id=UCGHjqW4Wsg2CNo8-N5KSSUQ opp
+
+# Data science
+https://medium.com/feed/@ageitgey
+https://www.youtube.com/feeds/videos.xml?channel_id=UCYUjYU5FveRAscQ8V21w81A
+https://medium.com/feed/@susmithreddyvedere
+https://www.youtube.com/feeds/videos.xml?channel_id=UCQTa-KkvgVdU75477r6J47g
+
+# Security
+https://www.youtube.com/feeds/videos.xml?channel_id=UCOSFVxvpr3OPiaJSwHWN8BQ sec
+
+# Math
+https://www.youtube.com/feeds/videos.xml?channel_id=UCoHhuummRZaIVX7bD4t2czg
+https://www.youtube.com/feeds/videos.xml?channel_id=UCLIvNqBJtlcw9ymmRhyAacw
+
+# Literacy
+https://www.youtube.com/feeds/videos.xml?channel_id=UCQqN3qgYbkfd0EkdhJmN5tQ
+https://www.scotthyoung.com/blog/feed/
+https://www.youtube.com/feeds/videos.xml?channel_id=UCHnyfMqiRRG1u-2MsSQLbXA
+https://www.youtube.com/feeds/videos.xml?channel_id=UC-fT6wIb2N5-fZexR_eBRyA
+https://www.youtube.com/feeds/videos.xml?channel_id=UCcG1yXxYV1_QaULKbrCfyPw
+https://www.youtube.com/feeds/videos.xml?channel_id=UC4of8xqL-SpDvTdOrRzS4sw
+https://feeds.buzzsprout.com/818704.rss
+https://www.omnycontent.com/d/playlist/2b465d4a-14ee-4fbe-a3c2-ac46009a2d5a/5f055e55-c45b-410b-af34-ac7000d88c38/8d56db7a-6a73-42d9-9555-ac7000d88c4f/podcast.rss
+https://www.youtube.com/feeds/videos.xml?channel_id=UCu1NJiJlhrhmF5ZgT-0yWdA
+https://www.youtube.com/feeds/videos.xml?channel_id=UCFq4pOuTiZmfJyCxaYTT3Hg
+https://www.youtube.com/feeds/videos.xml?channel_id=UCEHvaZ336u7TIsUQ2c6SAeQ
+https://www.youtube.com/feeds/videos.xml?channel_id=UCL-6HAx3MFwVyBQu4XqQv1Q
+https://www.youtube.com/feeds/videos.xml?channel_id=UCyQw44YqPM0kDCHYQmGPVeQ
+https://www.youtube.com/feeds/videos.xml?channel_id=UCUdtq-Fvlw7_NjzduNTZsbg
+https://www.youtube.com/feeds/videos.xml?channel_id=UChbuH4HULlesX_rzlozkT6Q
+https://feed.podbean.com/podcastkaf/feed.xml
+https://feeds.fireside.fm/kotobiology/rss
+https://www.youtube.com/feeds/videos.xml?channel_id=UC8CCrd8lSNxDHpUL0YgZHaA
+https://www.omnycontent.com/d/playlist/2b465d4a-14ee-4fbe-a3c2-ac46009a2d5a/3876f26f-8816-40ad-8aa1-ac7d005f2d7e/b8f6ab33-8ec7-4771-b1ad-ac7d0075ff2b/podcast.rss
+https://www.facebook.com/pg/rahaala.bookstore/posts
+https://www.omnycontent.com/d/playlist/2b465d4a-14ee-4fbe-a3c2-ac46009a2d5a/8d6f0f04-4e01-497d-8423-ac70008512c0/afb293c3-37a4-4eb3-a503-ac70008512d7/podcast.rss
