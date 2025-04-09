@@ -16,16 +16,21 @@
 # [x] Prototype for DEBUG mode
 # >>> 09 April 2025
 # [x] Add checks for used packages
-# [x] Add checks for bash and other packages versions
+# [x] Add checks for bash and zsh versions
 # [x] Portability between bash and zsh
 # [x] Make checks function shell agnostic
 # [x] Enable multiple URLs
 #
 # [ ] Make a comprehensive DEBUG mode
 
+### Shell version check
 if [ -n "$ZSH_VERSION" ]; then
 	low() { echo "${1:l}"; }
-	# TODO: check for required zsh version
+	autoload -Uz is-at-least
+	if ! is-at-least 5.1.1; then
+		printf "Error: This script requires at least zsh 5.1.1 (you are running %s)." "$ZSH_VERSION" >&2
+		exit 1
+	fi
 elif [ -n "$BASH_VERSION" ]; then
 	low() { echo "${1,,}"; }
 	if (( BASH_VERSINFO[0] < 4 || (BASH_VERSINFO[0] == 4 && BASH_VERSINFO[1] < 3) )); then
@@ -46,16 +51,16 @@ fi
 
 ### Arguments check
 if [ $# -eq 0 ]; then
-	printf "error: You must provide at least one URL.\n"
-	printf "usage: %s [options] url [url...]\n" "$0"
-	printf "Type %s -h to see available options.\n" "$0"
+	printf "Error: You must provide at least one URL.\n" >&2
+	printf "usage: yt-dlp.sh [options] url [url...]\n"
+	printf "Type yt-dlp.sh -h to see available options.\n"
 	exit 1
 fi
 
 ### Help menu
 flags()
 {
-	printf "usage: %s [options] url [url...]\n\n" "$0"
+	printf "usage: yt-dlp.sh [options] url [url...]\n\n"
 	printf "Options:\n"
 	printf "  -h\t\t show this help\n"
 	printf "  -a FORMAT\t audio format (aac|m4a|mp3|ogg|wav)\n"
@@ -127,7 +132,8 @@ script_start()
 			printf "\nyt-dlp -f \"bestaudio[ext=%s]\" %s " "${audio_ext}" "${chapters}"
 			for u in "${urls[@]}"; do  printf "\"%s\" " "$u"; done
 		else
-			printf "Error: media not specified!"
+			printf "Error: media not specified!" >&2
+			exit 1
 		fi
 	elif [ -z "$1" ]; then
 		if [ "$(low "$media")" = "v" ] || [ "$(low "$media")" = "video" ]; then
@@ -136,10 +142,12 @@ script_start()
 		elif [ "$(low "$media")" = "a" ] || [ "$(low "$media")" = "audio" ]; then
 			yt-dlp -f "bestaudio[ext=${audio_ext}]" ${chapters} "${urls[@]}"
 		else
-			printf "Error: media not specified!"
+			printf "Error: media not specified!" >&2
+			exit 1
 		fi
 	else
-		printf "Error: invalid mode of operation!\n"
+		printf "Error: invalid mode of operation!\n" >&2
+		exit 1
 	fi
 }
 
@@ -175,7 +183,7 @@ while getopts ":cDha:m:r:u:v:" option; do
 			exit 1;;
 		\?)
 			printf "Error: Invalid option -%s\n" "${OPTARG}"
-			printf "Type %s -h to see available options.\n" "$0"
+			printf "Type yt-dlp.sh -h to see available options.\n"
 			exit 1;;
 	esac
 done
