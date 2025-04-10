@@ -1,11 +1,11 @@
-#!/usr/bin/env zsh
+#!/bin/sh
 
 ### Script for functions I usually use with yt-dlp
 #
 # I prefer to download videos from youtube to study later than to stream it every time
 # due to limited internet data plans. I need a lot of quota for databases
 #
-# my default yt-dlp arguments are provided below. If you read the yt-dlp command, you will 
+# my default yt-dlp arguments are provided below. If you read the yt-dlp command, you will
 # understand why I did not want to write it every time I need to download a video/audio
 
 ### TODO
@@ -20,34 +20,21 @@
 # [x] Portability between bash and zsh
 # [x] Make checks function shell agnostic
 # [x] Enable multiple URLs
+# >>> 10 April 2025
+# [x] Make the script POSIX compliant
+# [x] Fix urls
 #
 # [ ] Make a comprehensive DEBUG mode
 
-### Shell version check
-if [ -n "$ZSH_VERSION" ]; then
-	low() { echo "${1:l}"; }
-	autoload -Uz is-at-least
-	if ! is-at-least 5.1.1; then
-		printf "Error: This script requires at least zsh 5.1.1 (you are running %s)." "$ZSH_VERSION" >&2
-		exit 1
-	fi
-elif [ -n "$BASH_VERSION" ]; then
-	low() { echo "${1,,}"; }
-	if (( BASH_VERSINFO[0] < 4 || (BASH_VERSINFO[0] == 4 && BASH_VERSINFO[1] < 3) )); then
-		printf "Error: This script requires at least Bash 4.3 (you are running %s)." "$BASH_VERSION" >&2
-		exit 1
-	fi
-else
-	printf "Unsupported shell!"
-	exit 1
-fi
-
 ### yt-dlp command check
-cmd="yt-dlp"
-if ! command -v "$cmd" >/dev/null 2>&1; then
-	echo "Error: Required command '$cmd' is not installed or not in the PATH.\n" >&2
-	exit 1
-fi
+commands="yt-dlp"
+for cmd in ${commands}; do
+	if ! command -v "${cmd}" >/dev/null 2>&1; then
+		printf "Error: Required command '%s' is not installed or not in the PATH.\n" "${cmd}" >&2
+		command_error=0
+	fi
+done
+[ -z "${command_error}" ] || exit 1
 
 ### Arguments check
 if [ $# -eq 0 ]; then
@@ -58,146 +45,172 @@ if [ $# -eq 0 ]; then
 fi
 
 ### Help menu
-flags()
-{
-	printf "usage: yt-dlp.sh [options] url [url...]\n\n"
+flags() {
+	printf "usage: %s [options] url [url...]\n\n" "$(basename "$0")"
 	printf "Options:\n"
-	printf "  -h\t\t show this help\n"
-	printf "  -a FORMAT\t audio format (aac|m4a|mp3|ogg|wav)\n"
-	printf "  -c\t\t enable --embed-chapters\n"
-	printf "  -D\t\t debug instead of install\n"
-	printf "  -m MEDIA\t media to download ([a]udio | [v]ideo)\n"
-	printf "  -r RESOLUTION\t choose video resolution\n"
-	printf "  -u URLS\t specify urls(s) to download\n"
-	printf "  -v FORMAT\t video format (3gp|flv|mp4|webm)\n"
+	printf "  -h               show this help\n"
+	printf "  -a FORMAT        audio format (aac|m4a|mp3|ogg|wav)\n"
+	printf "  -c               enable --embed-chapters\n"
+	printf "  -D               debug mode (print command instead of executing)\n"
+	printf "  -m MEDIA         media to download ([a]udio|[v]ideo)\n"
+	printf "  -r RESOLUTION    choose video resolution\n"
+	printf "  -u URLS          specify url(s) to download (overrides remaining arguments)\n"
+	printf "  -v FORMAT        video format (3gp|flv|mp4|webm)\n"
 }
 
-### Arrays and function to check user input for supported formats
-media_types=( "a" "audio" "v" "video" )
-audio_formats=( "aac" "m4a" "mp3" "ogg" "wav" )
-video_formats=( "3gp" "flv" "mp4" "webm" )
-video_resolutions=( "240" "360" "480" "720" "1080" )
-yes_no=( "y" "yes" "n" "no" )
+### Strings and function to check user input for supported patterns/formats
+audio_media="a audio"
+video_media="v video"
+audio_formats="aac m4a mp3 ogg wav"
+video_formats="3gp flv mp4 webm"
+video_resolutions="240 360 480 720 1080"
+no="n no"
+yes="y yes"
 
-_pattern_check()
-{
-	# proceed later to dafault value
-	if [ -z "$1" ]; then
-		return 0
-	fi
+_pattern_check() {
+	input=$(printf "%s" "$1" | tr "[:upper:]" "[:lower:]")
 
-	local input=$(low "$1")
-	local -a checks
-	eval "checks=(\"\${${2}[@]}\")"
+	# proceed to dafault value if empty input
+	[ -z "${input}" ] && return 0 || shift
 
 	# SUCCESS
-	for pattern in "${checks[@]}"; do
-		if [ "${pattern}" = "$input" ]; then
+	for pattern in "$@"; do
+		if [ "${pattern}" = "${input}" ]; then
 			return 0
 		fi
 	done
-	
+
 	# FAILURE
-	printf "%s not supported. try again\n" "$input"
+	printf "Error: '%s' not supported. Choices: (%s)\n" "${input}" "$*" >&2
 	return 1
 }
 
-interactive_mode()
-{
-	# Processes here are equivilant to do...while loop. User can only proceed with empty or valid input.
-	# In C style, that would be similar to:
-	# 		(get_input >  CHECK <input> vs <array> ? break : repeat_loop)
-	while read -p "Media(a/V)? " media && ! _pattern_check "$media" "media_types"; do : ; done
-	while read -p "Audio extension [m4a]? " audio_ext && ! _pattern_check "$audio_ext" "audio_formats"; do : ; done
-	while read -p "Embed chapters(y/N)? " embed && ! _pattern_check "$embed" "yes_no"; do : ; done
+interactive_mode() {
+	# Processes here are equivilant to do...while loop. User can only proceed with empty(default) or valid input.
+	while true; do
+		printf "Media(a/V)? "
+		read -r media
+		if _pattern_check "${media}" ${video_media} >/dev/null 2>&1; then
+			while
+				printf "Video format [mp4]? "
+				read -r video_ext && ! _pattern_check "${video_ext}" ${video_formats}
+			do :; done
+			while
+				printf "Video resolution [1080]? "
+				read -r res && ! _pattern_check "${res}" ${video_resolutions}
+			do :; done
+			break
+		elif _pattern_check "${media}" ${audio_media} ${video_media}; then
+			break
+		fi
+	done
+	while
+		printf "Audio extension [m4a]? "
+		read -r audio_ext && ! _pattern_check "${audio_ext}" ${audio_formats}
+	do :; done
 
-	if [ "$(low "$embed")" = "y" ] || [ "$(low "$embed")" = "yes" ]; then
-		chapters=${chapters/"$embed"/"--embed-chapters"}
-	fi
+	while true; do
+		printf "Embed chapters(y/N)? "
+		read -r embed
+		if _pattern_check "${embed}" ${no} >/dev/null 2>&1; then
+			break
+		elif _pattern_check "${embed}" ${yes} ${no}; then
+			chapters="--embed-chapters"
+			break
+		fi
+	done
 
-	if [ -z "$media" ] || [ "$(low "$media")" = "v" ] || [ "$(low "$media")" = "video" ]; then
-		while read -p "Video format [mp4]? " video_ext && ! _pattern_check "$video_ext" "video_formats"; do : ; done
-		while read -p "Video resolution [1080]? " res && ! _pattern_check "$res" "video_resolutions"; do : ; done
-	fi
+	while true; do
+		printf "Debug(y/N)? "
+		read -r debug
+		if _pattern_check "${debug}" ${no} >/dev/null 2>&1; then
+			break
+		elif _pattern_check "${debug}" ${yes} ${no}; then
+			debug_state="DEBUG"
+			break
+		fi
+	done
 }
 
-script_start()
-{
-	if [ "$1" = "DEBUG" ]; then
-		if [ "$(low "$media")" = "v" ] || [ "$(low "$media")" = "video" ]; then
-			printf "\nyt-dlp -f \"bestvideo[height<=%s][ext=%s]+bestaudio[ext=%s]/best[height<=%s][ext=%s]\" %s "\
-				"${res}" "${video_ext}" "${audio_ext}" "${res}" "${video_ext}" "${chapters}"
-			for u in "${urls[@]}"; do  printf "\"%s\" " "$u"; done
-		elif [ "$(low "$media")" = "a" ] || [ "$(low "$media")" = "audio" ]; then
-			printf "\nyt-dlp -f \"bestaudio[ext=%s]\" %s " "${audio_ext}" "${chapters}"
-			for u in "${urls[@]}"; do  printf "\"%s\" " "$u"; done
-		else
-			printf "Error: media not specified!" >&2
-			exit 1
-		fi
-	elif [ -z "$1" ]; then
-		if [ "$(low "$media")" = "v" ] || [ "$(low "$media")" = "video" ]; then
-			yt-dlp -f "bestvideo[height<=${res}][ext=${video_ext}]+bestaudio[ext=${audio_ext}]/\
-				best[height<=${res}][ext=${video_ext}]" ${chapters} "${urls[@]}"
-		elif [ "$(low "$media")" = "a" ] || [ "$(low "$media")" = "audio" ]; then
-			yt-dlp -f "bestaudio[ext=${audio_ext}]" ${chapters} "${urls[@]}"
-		else
-			printf "Error: media not specified!" >&2
-			exit 1
-		fi
-	else
-		printf "Error: invalid mode of operation!\n" >&2
+while getopts ":cDha:m:r:v:" option; do
+	case ${option} in
+	a)
+		audio_ext="${OPTARG}"
+		_pattern_check "${audio_ext}" ${audio_formats} || exit 1
+		;;
+	c)
+		chapters="--embed-chapters"
+		;;
+	D)
+		debug_state="DEBUG"
+		;;
+	h)
+		flags
+		exit 0
+		;;
+	m)
+		media="${OPTARG}"
+		_pattern_check "${media}" ${video_media} ${audio_media} || exit 1
+		;;
+	r)
+		res="${OPTARG}"
+		_pattern_check "${res}" ${video_resolutions} || exit 1
+		;;
+	v)
+		video_ext="${OPTARG}"
+		_pattern_check "${video_ext}" ${video_formats} || exit 1
+		;;
+	:)
+		printf "Error: option -%s needs an argument.\n" "${OPTARG}" >&2
 		exit 1
-	fi
-}
-
-while getopts ":cDha:m:r:u:v:" option; do
-	case $option in
-		a)
-			audio_ext="${OPTARG}"
-			_pattern_check "$audio_ext" "audio_formats" || exit 1
-			;;
-		c)
-			chapters="--embed-chapters";;
-		D)
-			debug_state="DEBUG";;
-		h)
-			flags
-			exit;;
-		m)
-			media="${OPTARG}"
-			_pattern_check "$media" "media_types" || exit 1
-			;;
-		r)
-			res="${OPTARG}"
-			_pattern_check "$res" "video_resolutions" || exit 1
-			;;
-		u)
-			urls="${OPTARG[@]}";;
-		v)
-			video_ext="${OPTARG}"
-			_pattern_check "$video_ext" "video_formats" || exit 1
-			;;
-		:)
-			printf "Error: option -%s needs an argument." "${OPTARG}"
-			exit 1;;
-		\?)
-			printf "Error: Invalid option -%s\n" "${OPTARG}"
-			printf "Type yt-dlp.sh -h to see available options.\n"
-			exit 1;;
+		;;
+	\?)
+		printf "Error: Invalid option -%s\n" "${OPTARG}" >&2
+		printf "Type yt-dlp.sh -h to see available options.\n"
+		exit 1
+		;;
+	*) ;;
 	esac
 done
 
-if [ "$OPTIND" -eq 1 ]; then
-	interactive_mode
-fi
+[ "${OPTIND}" -eq 1 ] && interactive_mode
 
 ### Default values
-media=${media:-"v"}
+media=${media:-"video"}
 audio_ext=${audio_ext:-"m4a"}
 video_ext=${video_ext:-"mp4"}
 res=${res:-"1080"}
-urls=("${@:$OPTIND}")
 
-script_start "$debug_state"
+shift $((OPTIND - 1))
+urls=${urls:-"$*"}
 
+if [ -z "${urls}" ]; then
+	printf "Error: No URLs specified.\n" >&2
+	exit 1
+fi
+
+### Action
+if [ "${debug_state}" = "DEBUG" ]; then
+	printf "=========================\n"
+	printf "	DEBUG MODE\n"
+	printf "=========================\n"
+	printf "Media Type: %s\n" "${media}"
+	printf "Audio Format: %s\n" "${audio_ext}"
+	printf "Embed Chapters: %s\n" "${chapters}"
+	if _pattern_check "${media}" ${video_media} >/dev/null 2>&1; then
+		printf "Video Format: %s\n" "${video_ext}"
+		printf "Video Resolution: %s\n" "${res}"
+		printf "yt-dlp -f \"bestvideo[height<=%s][ext=%s]+bestaudio[ext=%s]/best[height<=%s][ext=%s]\" %s " \
+			"${res}" "${video_ext}" "${audio_ext}" "${res}" "${video_ext}" "${chapters}"
+	elif _pattern_check "${media}" ${audio_media} ${video_media}; then
+		printf "yt-dlp -f \"bestaudio[ext=%s]\" %s " "${audio_ext}" "${chapters}"
+	fi
+	printf "\"%s\" " "${@}"
+else
+	if _pattern_check "${media}" ${video_media} >/dev/null 2>&1; then
+		yt-dlp -f "bestvideo[height<=${res}][ext=${video_ext}]+bestaudio[ext=${audio_ext}]/\
+				best[height<=${res}][ext=${video_ext}]" ${chapters} "$@"
+	elif _pattern_check "${media}" ${audio_media} ${video_media}; then
+		yt-dlp -f "bestaudio[ext=${audio_ext}]" ${chapters} "$@"
+	fi
+fi
